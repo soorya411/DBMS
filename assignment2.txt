@@ -1,0 +1,30 @@
+-- 
+-- Roll No: <52>
+-- Name: <soorya suresh k>
+-- Program: <Experimental Lab Assignment 2>
+-- 
+--
+-- Table structure for table <Teaches>
+create table Teaches(fno char(5) not null,sname varchar(15) not null,sdate date not null,edate date not null,primary key(fno),foreign key(fno) references faculty(fno),foreign key(sname) references subject(sname));
+
+
+alter table subject add duration int not null;
+alter table faculty modify column specialisation varchar(20);
+alter table subject DROP column sdate;
+alter table subject DROP column edate;
+--
+-- Dumping data for table <faculty>
+--
+insert into faculty values('a11','priya','2020-03-04','AOS');
+insert into faculty values('a21','pooja','2020-04-06','DBMS');
+insert into faculty values('a31','suma','2020-03-10','ACN');
+insert into faculty values('b21','john','2020-03-14','DBMS');
+insert into faculty values('b13','paul','2020-03-23','DFCA');
+--
+-- Dumping data for table <subject>
+--
+insert into subject values('ACN','2020-05-06','2020-05-23','456','a31');
+insert into subject values('AOS','2020-04-2','2020-04-28','43','a11');
+insert into subject values('DBMS','2020-04-11','2020-04-22','125','b21');
+insert into subject values('DBMS','2020-04-11','2020-04-22','203','b21');
+insert into subject values('DFCA','2020-04-12','2020-04-29','143','b13');

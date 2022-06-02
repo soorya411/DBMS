@@ -1,0 +1,17 @@
+-- 
+-- Roll No: <52>
+-- Name: <soorya suresh k>
+-- Program: <Experimental Lab Assignment1>
+-- 
+
+
+--
+-- Table structure for table <faculty>
+--
+create table faculty(fno varchar(5),fname varchar(15),doj date not null,specialization varchar(15),primary key(Fno));
+--
+-- Table structure for table <subject>
+--
+create table subject(sname varchar(15)not null,sdate date not null,edate date not null,roomno char(5) not null,primary key(sname,roomno),fno varchar(5),foreign key(fno)references faulty(fno));
+--
+-- 

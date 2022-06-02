@@ -1,0 +1,36 @@
+-- 
+-- Roll No: <52>
+-- Name: <Soorya Suresh K>
+-- Program: <Vehicle Insurance Management System - II>
+-- 
+
+
+--
+--Table structure for table <policy_holder>
+--
+
+create view policy_holder as select policy_no,issue_date,name,reg_no,make,model,yom,cc,sc,value,policy_amt,mode from policy natural join(vehicle natural join (owns natural join customer));
+
+--
+--Table structure for table <claim>
+--
+mysql> create view claim as select claim_no,policy_no,name,reg_no,doa,location,make,model,amt from policy natural join(customer natural join(vehicle natural join(accident natural join participated)));
+
+--
+-- SQl Query Statements
+--
+
+select monthname('2021-01-07');
+select month('2021-01-07');
+select day('2021-01-07');
+select year('2021-01-07');
+select dayname('2021-01-07');
+
+
+delimiter $$
+create procedure policy2(IN claim_number varchar(10),OUT amount int)
+     begin
+     select amt from participated
+     where claim_number=claim_no;
+     end $$
+
